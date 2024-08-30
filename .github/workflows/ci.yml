@@ -32,4 +32,6 @@ jobs:
           git config --local user.name "Ry02024"
           git add output/result.csv
           git commit -m "Add generated CSV file"
-          git push https://Ry02024:${{ secrets.PAT_TOKEN }}@github.com/Ry02024/ci-cd.git main
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
