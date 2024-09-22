@@ -1,8 +1,7 @@
-# .github/workflows/ci.yml
 name: Generate and Push CSV
 
 on:
-  workflow_dispatch:  # 手動トリガーを許可
+  workflow_dispatch:  # 手動トリガー
 
 jobs:
   build:
@@ -17,14 +16,18 @@ jobs:
         with:
           python-version: '3.8'
 
+      - name: Install dependencies from requirements.txt
+        run: |
+          pip install -r requirements.txt  # requirements.txtから依存パッケージをインストール
+
       - name: Run Python script and generate CSV
         run: |
-          python src/main.py  # src/main.py内でCSVを生成
+          python src/main.py  # CSVファイルを生成
     
       - name: Commit and push CSV to repository
         run: |
-          git config --local user.email "tan0ry020204@gmail.com"
-          git config --local user.name "Ry02024"
+          git config --local user.email "your-email@example.com"
+          git config --local user.name "your-github-username"
           git add output/result.csv
           git commit -m "Add generated CSV file"
-          git push https://Ry02024:${{ secrets.PAT_TOKEN }}@github.com/Ry02024/ci-cd.git main
+          git push https://your-github-username:${{ secrets.PAT_TOKEN }}@github.com/your-github-username/your-repo.git main
