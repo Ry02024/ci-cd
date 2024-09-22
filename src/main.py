@@ -1,23 +1,13 @@
-# src/main.py
-import csv
+import pandas as pd
 
-def add(a, b):
-    return a + b
+# データフレームを作成
+data = {
+    "Name": ["Alice", "Bob", "Charlie"],
+    "Age": [25, 30, 35],
+    "City": ["New York", "Los Angeles", "Chicago"]
+}
 
-def save_result_to_csv(filename):
-    results = [
-        {"a": 1, "b": 2, "result": add(1, 2)},
-        {"a": -1, "b": 1, "result": add(-1, 1)},
-        {"a": 0, "b": 0, "result": add(0, 0)},
-    ]
+df = pd.DataFrame(data)
 
-    with open(filename, mode='w', newline='') as file:
-        writer = csv.DictWriter(file, fieldnames=["a", "b", "result"])
-        writer.writeheader()
-        for result in results:
-            writer.writerow(result)
-
-if __name__ == "__main__":
-    csv_filename = "output/result.csv"
-    save_result_to_csv(csv_filename)
-    print(f"Results saved to {csv_filename}")
+# CSVファイルとして保存
+df.to_csv('output/result.csv', index=False)
