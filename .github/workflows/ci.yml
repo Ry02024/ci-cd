@@ -1,13 +1,8 @@
 # .github/workflows/ci.yml
-name: CI
+name: Generate and Push CSV
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+  workflow_dispatch:  # 手動トリガーを許可
 
 jobs:
   build:
@@ -24,7 +19,7 @@ jobs:
 
       - name: Run Python script and generate CSV
         run: |
-          python src/main.py
+          python src/main.py  # src/main.py内でCSVを生成
     
       - name: Commit and push CSV to repository
         run: |
