@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Generator</title>
+</head>
+<body>
+    <h1>CSV Generator</h1>
+    <p>GitHub ActionsをトリガーするためのPersonal Access Tokenを入力してください:</p>
+    <input type="text" id="token-input" placeholder="Enter your GitHub token">
+    <button id="generate-btn">生成</button>
+    <p id="output"></p>
+
+    <h2>生成されたCSV:</h2>
+    <table id="csv-table" border="1">
+        <thead>
+            <tr id="csv-header"></tr>
+        </thead>
+        <tbody id="csv-body"></tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
