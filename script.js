@@ -21,7 +21,7 @@ document.getElementById("generate-btn").addEventListener("click", function() {
     .then(response => {
         if (response.ok) {
             document.getElementById("output").textContent = 'GitHub Actionsをトリガーしました。CSV生成中です...';
-            setTimeout(fetchCSV, 60000);  // 60秒後にCSVの取得を試みる
+            // setTimeout(fetchCSV, 60000);  // 60秒後にCSVの取得を試みる
         } else {
             document.getElementById("output").textContent = 'トークンが無効です。';
             throw new Error('Invalid token');
